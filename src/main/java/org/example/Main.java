@@ -18,16 +18,18 @@ public class Main {
     int minus = firstNumber - secondNumber;
     int multiply = firstNumber * secondNumber;
     double divide = (double) firstNumber / secondNumber;
-    switch (operator) {
-      case "+" ->
-          System.out.println("計算結果：" + firstNumber + operator + secondNumber + "=" + plus);
-      case "-" ->
-          System.out.println("計算結果：" + firstNumber + operator + secondNumber + "=" + minus);
-      case "*" ->
-          System.out.println("計算結果：" + firstNumber + operator + secondNumber + "=" + multiply);
-      case "/" ->
-          System.out.println("計算結果：" + firstNumber + operator + secondNumber + "=" + divide);
-      default -> System.out.println("計算できませんでした");
+    if (operator.equals("+")) {
+      System.out.println("計算結果：" + firstNumber + operator + secondNumber + "=" + plus);
+    } else if (operator.equals("-")) {
+      System.out.println("計算結果：" + firstNumber + operator + secondNumber + "=" + minus);
+    } else if (operator.equals("*")) {
+      System.out.println("計算結果：" + firstNumber + operator + secondNumber + "=" + multiply);
+    } else if (operator.equals("/") && secondNumber == 0) {
+      System.out.println("計算できません（解なし）");
+    } else if (operator.equals("/")) {
+      System.out.println("計算結果：" + firstNumber + operator + secondNumber + "=" + divide);
+    } else {
+      System.out.println("演算子が誤っています");
     }
 
   }
